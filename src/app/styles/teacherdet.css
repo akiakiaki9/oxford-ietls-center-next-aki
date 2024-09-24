@@ -1,0 +1,114 @@
+.teacherdet {
+    padding: 20px 10px;
+    background-image: url('../images/teacherdet.avif');
+    background-size: cover;
+    background-position: center;
+}
+
+.teacherdet-blok {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.teacherdet-blok__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.teacherdet-blok__container img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    padding: 5px;
+    border: 1px solid rgb(164, 164, 164);
+}
+
+.teacherdet__title {
+    font-size: 280%;
+    font-family: sans-serif;
+}
+
+.teacherdet__category {
+    text-align: center;
+    font-family: sans-serif;
+    text-decoration: underline;
+}
+
+.teacherdet__age {
+    font-size: 110%;
+    font-family: sans-serif;
+}
+
+.teacherdet__students {
+    font-size: 160%;
+    font-family: sans-serif;
+}
+
+.teacherdet-blok__container-2 p span {
+    color: var(--orange-color);
+    font-size: 120%;
+    font-weight: bold;
+}
+
+
+
+.teacherdet-blok__container-links {
+    text-align: center;
+}
+
+.teacherdet-blok__container-links div {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.teacherdet__link {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: .3s;
+    color: var(--orange-color);
+}
+
+.teacherdet__link:hover {
+    opacity: .7;
+}
+
+.teachersdet__biography {
+    max-width: 900px;
+}
+
+.teachersdet__biography p {
+    font-size: 110%;
+    letter-spacing: 0.1px;
+}
+
+.teachersdet__biography-h2 {
+    font-size: 250%;
+    border: none;
+    border-bottom: 2px solid var(--orange-color);
+    border-radius: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+@media (max-width: 636px) {
+    .teacherdet-blok__container {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .teacherdet-blok__container img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .teacherdet__title {
+        font-size: 210%;
+    }
+}

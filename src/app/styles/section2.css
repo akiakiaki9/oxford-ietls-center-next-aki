@@ -1,0 +1,54 @@
+.section2 {
+    background-image: url(../images/section2.jpg);
+    background-attachment: fixed;
+    height: 55vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.section2-blok {
+    background-color: #ffffffcb;
+    padding: 50px;
+}
+
+.section2-blok h1 {
+    font-weight: 200;
+    font-size: 290%;
+    padding-bottom: 20px;
+}
+
+.section2-blok p {
+    font-size: 120%;
+}
+
+@media (max-width: 600px) {
+    .section2-blok h1 {
+        font-size: 250%;
+    }
+    
+    .section2-blok p {
+        font-size: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .section2 {
+        height: 30vh;
+    }
+
+
+    .section2-blok {
+        padding: 10px;
+    }
+
+
+    .section2-blok h1 {
+        font-size: 200%;
+    }
+    
+    .section2-blok p {
+        font-size: 80%;
+    }
+}

@@ -1,0 +1,52 @@
+.about-us {
+    padding: 20px 10px;
+    font-family: sans-serif;
+}
+
+.about-us p {
+    color: rgb(73, 73, 73);
+}
+
+.about-us h1 {
+    margin-bottom: 5px;
+    font-size: 180%;
+}
+
+.about-us h2 {
+    margin-bottom: 5px;
+}
+
+.about-us ol {
+    list-style-type: decimal; /* Для нумерации */
+    padding-left: 20px; /* Отступ для отображения чисел */
+    color: var(--orange-color);
+}
+
+.about-us ol li {
+    margin-bottom: 10px;
+}
+
+.about-us ul {
+    list-style-type: disc; /* Для маркеров */
+    padding-left: 20px; /* Отступ для отображения маркеров */
+}
+
+.about-us ul li {
+    margin-bottom: 10px;
+}
+
+.about-us ul li::marker {
+    color: var(--orange-color); /* Задаем цвет только для маркеров */
+}
+
+@media (max-width: 870px) {
+    .about-us h1 {
+        font-size: 150%;
+    }
+    .about-us p {
+        font-size: 90%;
+    }
+    .about-us b {
+        font-size: 90%;
+    }
+}

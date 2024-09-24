@@ -1,0 +1,64 @@
+.teachers {
+    padding: 20px 10px;
+    font-family: sans-serif;
+}
+
+.teachers-blok {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.teacher {
+    display: flex;
+    flex-direction: column;
+    background-color: #eeeeee;
+    overflow: hidden;
+}
+
+.teachers__img {
+    width: 230px;
+    height: 340px;
+    object-fit: cover;
+    transition: .5s;
+}
+
+.teachers__img:hover {
+    transform: scale(1.1);
+}
+
+.teachers__b {
+    font-size: 130%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 3px;
+    padding: 10px 0 0 5px;
+}
+
+.teachers__p {
+    font-size: 85%;
+    color: #252525;
+    padding: 0 0 10px 5px;
+}
+
+@media (max-width: 846px) {
+    .teachers__img {
+        width: 200px;
+        height: 250px;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 467px) {
+    .teachers__img {
+        width: 170px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 407px) {
+    .teachers__img {
+        width: 150px;
+        height: 250px;
+    }
+}

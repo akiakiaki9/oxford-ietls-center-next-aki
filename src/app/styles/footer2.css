@@ -1,0 +1,15 @@
+.footer2 {
+    color: #fff;
+    background-color: #22282df4;
+    text-align: center;
+}
+
+.footer2-blok {
+    padding: 15px 0;
+}
+
+@media (max-width: 500px) {
+    .footer2-blok p {
+        font-size: 70%;
+    }
+}

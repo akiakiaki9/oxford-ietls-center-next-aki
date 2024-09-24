@@ -1,0 +1,22 @@
+.section3 {
+    background-color: var(--main-color);
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section3-blok {
+    font-size: 200%;
+    color: #fff;
+}
+
+@media (max-width: 480px) {
+    .section3 {
+        height: 15vh;
+    }
+
+    .section3-blok {
+        font-size: 150%;
+    }
+}

@@ -1,0 +1,97 @@
+.registration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 10px;
+    background-image: url(../images/register\ background.jpeg);
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 80vh;
+    background-blend-mode: multiply;
+    background-color: #5a5a5a;
+    color: #fff;
+}
+
+.registration form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 950px; /* Ограничение ширины формы */
+    padding: 5px;
+}
+
+.registration-form__blok {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.registration-form__blok-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-bottom: 20px; /* Добавлен отступ для лучшего восприятия */
+}
+
+.registration-form__blok-container input,
+.registration-form__blok-container select,
+.registration-form__blok-container textarea {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box; /* Чтобы padding не влиял на общую ширину */
+    padding: 15px 10px;
+    outline: none;
+    border: none;
+    background-color: #f9f9f9;
+}
+
+.registration__submit {
+    padding: 15px 0;
+    cursor: pointer;
+    transition: .3s;
+    background-color: green;
+    border: none;
+    color: #fff;
+    width: 100%;
+    align-self: center; /* Выравнивание по центру */
+}
+
+.registration__submit:hover {
+    opacity: .7;
+}
+
+@media (max-width: 990px) {
+    .registration-form__blok {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .registration-form__blok-container {
+        width: 100%;
+        align-items: center;
+    }
+
+    .registration-form__blok-container input,
+    .registration-form__blok-container select,
+    .registration-form__blok-container textarea {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        padding: 10px; /* Сокращенный padding для маленьких экранов */
+        font-size: 14px; /* Уменьшение размера шрифта для лучшей адаптации */
+    }
+
+    .registration-form__blok-container select option {
+        font-size: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .registration {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.366), rgba(0, 0, 0, 0.07)), url(../images/register\ background.jpeg);
+        background-position: bottom;
+        background-attachment: local;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+}
