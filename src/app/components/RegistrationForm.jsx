@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import IMask from 'imask';
 
 export default function RegistrationForm() {
@@ -10,9 +10,8 @@ export default function RegistrationForm() {
         age: '',
         gender: '',
         examType: '',
-        body: ''  // Новое поле для текста
+        body: ''  // Поле для дополнительной информации
     });
-    const [lastSubmissionTime, setLastSubmissionTime] = useState(null);
     const telInputRef = useRef(null);
 
     useEffect(() => {
@@ -20,16 +19,6 @@ export default function RegistrationForm() {
             mask: '+{998}(00)000-00-00',
         };
         const mask = IMask(telInputRef.current, maskOptions);
-
-        const loadRecaptcha = () => {
-            const script = document.createElement('script');
-            script.src = 'https://www.google.com/recaptcha/enterprise.js?render=6LdVpTAqAAAAAKm1jpZ5F6xzcHbjTnyg5YPhXXHU';
-            script.async = true;
-            script.defer = true;
-            document.body.appendChild(script);
-        };
-
-        loadRecaptcha();
 
         return () => {
             mask.destroy();
@@ -44,67 +33,19 @@ export default function RegistrationForm() {
         });
     };
 
-    const handleFormSubmit = async (event) => {
-        event.preventDefault();
-
-        // Получаем токен reCAPTCHA
-        const token = await new Promise((resolve) => {
-            window.grecaptcha.enterprise.ready(() => {
-                window.grecaptcha.enterprise.execute('6LdVpTAqAAAAAKm1jpZ5F6xzcHbjTnyg5YPhXXHU', { action: 'submit' }).then(resolve);
-            });
-        });
-
-        // Проверка времени последней отправки формы
-        const currentTime = new Date().getTime();
-        if (lastSubmissionTime) {
-            if (currentTime - lastSubmissionTime < 30 * 60 * 1000) {
-                alert('Please try again in 30 minutes.');
-                return;
-            }
-        }
-
-        try {
-            const response = await fetch("https://formspree.io/f/mpwaljag", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ ...formData, "g-recaptcha-response": token })
-            });
-
-            if (response.ok) {
-                alert('Thanks for registration!');
-                setFormData({
-                    firstName: '',
-                    lastName: '',
-                    tel: '',
-                    age: '',
-                    gender: '',
-                    examType: '',
-                    body: ''  // Сбрасываем поле body
-                });
-                setLastSubmissionTime(currentTime); // Обновляем время последней отправки
-            } else {
-                alert('Error submitting form.');
-            }
-        } catch (err) {
-            console.error(err);
-            alert('Error submitting form.');
-        }
-    };
-
     return (
         <div className="registration">
             <form
-                onSubmit={handleFormSubmit}
-                name="registration-form"
-                method="POST"
-                data-netlify="true"
+                name="registration-form"  // Указываем имя формы для Netlify
+                method="POST"              // Используем метод POST
+                data-netlify="true"         // Активируем Netlify Forms
+                data-netlify-recaptcha="true" // Включаем поддержку reCAPTCHA от Netlify
             >
-                {/* Honeypot Field */}
-                <input type="text" name="_gotcha" style={{ display: 'none' }} />
-
+                {/* Honeypot Field (Netlify будет игнорировать отправки, если это поле заполнено) */}
                 <input type="hidden" name="form-name" value="registration-form" />
+                <p style={{ display: 'none' }}>
+                    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                </p>
 
                 <div className="registration-form__blok registration-form__blok-1">
                     <div className="registration-form__blok-container">
@@ -190,7 +131,6 @@ export default function RegistrationForm() {
                     </div>
                 </div>
 
-                {/* Поле для ввода текста */}
                 <div className="registration-form__blok-container">
                     <label htmlFor="body">Additional information</label>
                     <textarea
@@ -201,6 +141,10 @@ export default function RegistrationForm() {
                         onChange={handleInputChange}
                     ></textarea>
                 </div>
+
+                {/* Google reCAPTCHA */}
+                <div data-netlify-recaptcha="true"></div>
+
                 <br />
                 <button className='registration__submit' type="submit">Submit</button>
             </form>
