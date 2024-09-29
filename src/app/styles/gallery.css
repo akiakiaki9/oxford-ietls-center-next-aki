@@ -123,26 +123,6 @@
     border-radius: 5px;
 }
 
-/* Кнопка для скачивания изображения */
-.download-button {
-    position: absolute;
-    top: 20px;
-    right: 80px; /* Отступ от правого края, чтобы не перекрывать кнопку закрытия */
-    border: none;
-    font-size: 40px;
-    color: #ffffff;
-    cursor: pointer;
-    z-index: 1001;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 5px;
-    border-radius: 50%;
-    transition: .3s;
-}
-
-.download-button:hover {
-    opacity: .8;
-}
-
 @media (max-width: 560px) {
     .swiper-button-prev,
     .swiper-button-next {

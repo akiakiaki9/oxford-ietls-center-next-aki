@@ -1,4 +1,4 @@
-import picture1 from '../images/news/news1.jpg'
+import picture1 from '/public/images/news/news1.jpg'
 
 export const NEWS = [
     {

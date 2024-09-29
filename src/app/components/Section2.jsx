@@ -1,4 +1,5 @@
-'use client';import React from 'react';
+'use client';
+import React from 'react';
 
 export default function Section2() {
   return (

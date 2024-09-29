@@ -19,7 +19,7 @@ export default function Teachers() {
           <div key={teacher.id} className='teacher'>
             <div className="teacher-img-wrapper">
               <Link href={`/teachers/${teacher.id}`}>
-                <Image className='teachers__img' src={teacher.image} alt="" width={'500px'} height={'500px'} />
+                <Image className='teachers__img' src={teacher.image} alt="" width={500} height={500} />
               </Link>
               <div className="social-icons">
                 <a href={teacher.facebookLink} className="social-icon"><FaFacebookF /></a>

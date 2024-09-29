@@ -1,5 +1,5 @@
 .section2 {
-    background-image: url(../images/section2.jpg);
+    background-image: url('/images/section2.jpg');
     background-attachment: fixed;
     height: 55vh;
     display: flex;

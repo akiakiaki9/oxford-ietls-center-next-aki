@@ -1,6 +1,6 @@
 'use client';
 import React from 'react'
-import photo from '/public/images/section1.jpg'
+import section1 from '/public/images/section1.jpg'
 import Image from 'next/image';
 
 export default function Section1() {
@@ -9,7 +9,7 @@ export default function Section1() {
     <div className='section1'>
       <div className="section1-blok">
         <div className="section1-blok__container">
-          <Image src={photo} alt="" width={'500px'} height={'500px'} />
+          <Image src={section1} alt="" width={'500px'} height={'500px'} />
         </div>
         <div className="section1-blok__container">
           <div className='section1__title'>Learn and Grow</div>

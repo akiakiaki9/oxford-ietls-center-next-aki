@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-import { FaChevronLeft, FaChevronRight, FaDownload } from 'react-icons/fa';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import 'swiper/swiper-bundle.css';
 import GALLERY from '../utils/gallery';
 import Image from 'next/image';
@@ -20,15 +20,6 @@ export default function GalleryArt() {
 
     const closeCarousel = () => {
         setIsOpen(false);
-    };
-
-    const downloadImage = (url) => {
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = `Image_${currentSlide + 1}.jpg`; // Задать имя скачиваемого файла
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
     };
 
     return (
@@ -48,10 +39,6 @@ export default function GalleryArt() {
 
             {isOpen && (
                 <div className="carousel-overlay">
-                    {/* Кнопка для скачивания изображения */}
-                    <button className="download-button" onClick={() => downloadImage(GALLERY[currentSlide].photo)}>
-                        <FaDownload />
-                    </button>
                     {/* Кнопка для закрытия карусели */}
                     <button className="close-button" onClick={closeCarousel}>×</button>
                     <Swiper
@@ -67,7 +54,9 @@ export default function GalleryArt() {
                     >
                         {GALLERY.map((item) => (
                             <SwiperSlide key={item.id}>
-                                <Image src={item.photo} alt={`Slide ${item.id}`} className="carousel-image" width={'500px'} height={'500px'} />
+                                <div className="ahah">
+                                    <Image src={item.photo} alt={`Slide ${item.id}`} className="carousel-image" width={'500px'} height={'500px'} />
+                                </div>
                             </SwiperSlide>
                         ))}
                     </Swiper>
