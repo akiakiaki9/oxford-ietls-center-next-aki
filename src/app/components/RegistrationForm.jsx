@@ -17,14 +17,16 @@ export default function ContactForm() {
     const telInputRef = useRef(null);
 
     useEffect(() => {
+        // Инициализация маски для ввода телефона
         const maskOptions = {
             mask: '+{998}(00)000-00-00',
         };
         const mask = IMask(telInputRef.current, maskOptions);
 
+        // Загрузка скрипта reCAPTCHA
         const loadRecaptcha = () => {
             const script = document.createElement('script');
-            script.src = 'https://www.google.com/recaptcha/enterprise.js?render=6LdngysqAAAAAHFmIBWhU1NPbMmKS1RdePIub-1F';
+            script.src = 'https://www.google.com/recaptcha/enterprise.js?render=6LdgX1IqAAAAAEx0uuY5R9D0IckDyKSBhm65tD6w';
             script.async = true;
             script.defer = true;
             document.body.appendChild(script);
@@ -51,7 +53,7 @@ export default function ContactForm() {
         // Получаем токен reCAPTCHA
         const token = await new Promise((resolve) => {
             window.grecaptcha.enterprise.ready(() => {
-                window.grecaptcha.enterprise.execute('6LdngysqAAAAAHFmIBWhU1NPbMmKS1RdePIub-1F', { action: 'submit' }).then(resolve);
+                window.grecaptcha.enterprise.execute('6LdgX1IqAAAAAEx0uuY5R9D0IckDyKSBhm65tD6w', { action: 'submit' }).then(resolve);
             });
         });
 
@@ -98,117 +100,119 @@ export default function ContactForm() {
 
     return (
         <>
+            <div className='contact-title'>
+                <h3>Fill out the feedback form</h3>
+                <div className='contact-title__div'></div>
+                <p>Or call the number <a href="tel:+998770047766">+998 77-004-77-66</a></p>
+            </div>
             <div className="registration">
-            <form
-                onSubmit={handleFormSubmit}
-                name="registration-form"
-                method="POST"
-            >
-                {/* Honeypot Field */}
-                <input type="text" name="_gotcha" style={{ display: 'none' }} />
+                <form
+                    onSubmit={handleFormSubmit}
+                    name="registration-form"
+                    method="POST"
+                >
+                    {/* Honeypot Field */}
+                    <input type="text" name="_gotcha" style={{ display: 'none' }} />
 
-                <div className="registration-form__blok registration-form__blok-1">
-                    <div className="registration-form__blok-container">
-                        <label htmlFor="firstName">Name</label>
-                        <input
-                            id="firstName"
-                            type="text"
-                            name="firstName"
-                            value={formData.firstName}
-                            onChange={handleInputChange}
-                            required
-                        />
+                    <div className="registration-form__blok registration1-form__blok-1">
+                        <div className="registration-form__blok-container">
+                            <label htmlFor="firstName">Name</label>
+                            <input
+                                id="firstName"
+                                type="text"
+                                name="firstName"
+                                value={formData.firstName}
+                                onChange={handleInputChange}
+                                required
+                            />
+                        </div>
+
+                        <div className="registration-form__blok-container">
+                            <label htmlFor="lastName">Last Name</label>
+                            <input
+                                id="lastName"
+                                type="text"
+                                name="lastName"
+                                value={formData.lastName}
+                                onChange={handleInputChange}
+                                required
+                            />
+                        </div>
+
+                        <div className="registration-form__blok-container">
+                            <label htmlFor="tel">Phone</label>
+                            <input
+                                id="tel"
+                                type="tel"
+                                name="tel"
+                                ref={telInputRef}
+                                value={formData.tel}
+                                onChange={handleInputChange}
+                                required
+                            />
+                        </div>
                     </div>
 
-                    <div className="registration-form__blok-container">
-                        <label htmlFor="lastName">Last Name</label>
-                        <input
-                            id="lastName"
-                            type="text"
-                            name="lastName"
-                            value={formData.lastName}
-                            onChange={handleInputChange}
-                            required
-                        />
+                    <div className="registration-form__blok">
+                        <div className="registration-form__blok-container">
+                            <label htmlFor="age">Age</label>
+                            <input
+                                id="age"
+                                type="number"
+                                name="age"
+                                min="1"
+                                value={formData.age}
+                                onChange={handleInputChange}
+                                required
+                            />
+                        </div>
+
+                        <div className="registration-form__blok-container">
+                            <label htmlFor="gender">Gender</label>
+                            <select
+                                id="gender"
+                                name="gender"
+                                value={formData.gender}
+                                onChange={handleInputChange}
+                                required
+                            >
+                                <option value="" disabled>Select gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+
+                        <div className="registration-form__blok-container">
+                            <label htmlFor="examType">Exam</label>
+                            <select
+                                id="examType"
+                                name="examType"
+                                value={formData.examType}
+                                onChange={handleInputChange}
+                                required
+                            >
+                                <option value="" disabled>Select exam</option>
+                                <option value="IELTS">IELTS</option>
+                                <option value="CEFR">CEFR</option>
+                            </select>
+                        </div>
                     </div>
 
+                    {/* Поле для ввода текста */}
                     <div className="registration-form__blok-container">
-                        <label htmlFor="tel">Phone</label>
-                        <input
-                            id="tel"
-                            type="tel"
-                            name="tel"
-                            ref={telInputRef}
-                            value={formData.tel}
+                        <label htmlFor="body">Additional information</label>
+                        <textarea
+                            id="body"
+                            name="body"
+                            rows="4"
+                            value={formData.body}
                             onChange={handleInputChange}
-                            required
-                        />
+                        ></textarea>
                     </div>
-
-                </div>
-
-                <div className="registration-form__blok">
-
-                    <div className="registration-form__blok-container">
-                        <label htmlFor="age">Age</label>
-                        <input
-                            id="age"
-                            type="number"
-                            name="age"
-                            min="1"
-                            value={formData.age}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </div>
-
-                    <div className="registration-form__blok-container">
-                        <label htmlFor="gender">Gender</label>
-                        <select
-                            id="gender"
-                            name="gender"
-                            value={formData.gender}
-                            onChange={handleInputChange}
-                            required
-                        >
-                            <option value="" disabled>Select gender</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                        </select>
-                    </div>
-
-                    <div className="registration-form__blok-container">
-                        <label htmlFor="examType">Exam</label>
-                        <select
-                            id="examType"
-                            name="examType"
-                            value={formData.examType}
-                            onChange={handleInputChange}
-                            required
-                        >
-                            <option value="" disabled>Select exam</option>
-                            <option value="IELTS">IELTS</option>
-                            <option value="CEFR">CEFR</option>
-                        </select>
-                    </div>
-
-                </div>
-
-                {/* Поле для ввода текста */}
-                <div className="registration-form__blok-container">
-                    <label htmlFor="body">Additional information</label>
-                    <textarea
-                        id="body"
-                        name="body"
-                        rows="4"
-                        value={formData.body}
-                        onChange={handleInputChange}
-                    ></textarea>
-                </div>
-                <br />
-                <button className='registration__submit' type="submit">Submit</button>
-            </form>
-        </div>
+                    <br />
+                    <button className='registration__submit' type="submit">Submit</button>
+                </form>
+            </div>
         </>
     );
 };
