@@ -100,11 +100,6 @@ export default function ContactForm() {
 
     return (
         <>
-            <div className='contact-title'>
-                <h3>Fill out the feedback form</h3>
-                <div className='contact-title__div'></div>
-                <p>Or call the number <a href="tel:+998770047766">+998 77-004-77-66</a></p>
-            </div>
             <div className="registration">
                 <form
                     onSubmit={handleFormSubmit}
