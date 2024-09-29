@@ -17,7 +17,8 @@ export default function TeachersDetail() {
         return <div>Loading...</div>; // Пока данные не загружены, выводим индикатор загрузки
     }
 
-    const teacher = TEACHERS.find((t) => t.id === parseInt(id));
+    // Приводим id учителя к строке для корректного сравнения
+    const teacher = TEACHERS.find((t) => t.id.toString() === id);
     const [studentsCount, setStudentsCount] = useState(0);
 
     useEffect(() => {

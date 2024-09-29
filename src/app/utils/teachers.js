@@ -12,6 +12,7 @@ export const TEACHERS = [
         body: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto, ipsum possimus quisquam voluptates iusto inventore earum similique mollitia obcaecati ut.',
         students: 150,
         image: photo1,
+        facebookLink: 'https://www.facebook.com/zuck',
         telegramLink: 'https://t.me/aki_developer',
         instagramLink: 'https://www.instagram.com/zuck'
     },
@@ -23,6 +24,7 @@ export const TEACHERS = [
         body: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto, ipsum possimus quisquam voluptates iusto inventore earum similique mollitia obcaecati ut.',
         students: 170,
         image: photo2,
+        facebookLink: 'https://www.facebook.com/zuck',
         telegramLink: 'https://t.me/aki_developer',
         instagramLink: 'https://www.instagram.com/zuck'
     },
@@ -34,6 +36,7 @@ export const TEACHERS = [
         body: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto, ipsum possimus quisquam voluptates iusto inventore earum similique mollitia obcaecati ut.',
         students: 250,
         image: photo3,
+        facebookLink: 'https://www.facebook.com/zuck',
         telegramLink: 'https://t.me/aki_developer',
         instagramLink: 'https://www.instagram.com/zuck'
     },
@@ -45,6 +48,7 @@ export const TEACHERS = [
         body: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto, ipsum possimus quisquam voluptates iusto inventore earum similique mollitia obcaecati ut.',
         students: 350,
         image: photo4,
+        facebookLink: 'https://www.facebook.com/zuck',
         telegramLink: 'https://t.me/aki_developer',
         instagramLink: 'https://www.instagram.com/zuck'
     }

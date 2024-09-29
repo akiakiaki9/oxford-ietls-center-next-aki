@@ -15,17 +15,57 @@
     flex-direction: column;
     background-color: #eeeeee;
     overflow: hidden;
+    position: relative;
+    border-radius: 25px;
+}
+
+.teacher-img-wrapper {
+    position: relative;
+    overflow: hidden;
 }
 
 .teachers__img {
     width: 230px;
     height: 340px;
     object-fit: cover;
-    transition: .5s;
+    transition: transform .5s ease, filter .5s ease;
 }
 
 .teachers__img:hover {
     transform: scale(1.1);
+    filter: brightness(0.7); /* затемнение при наведении */
+}
+
+.social-icons {
+    position: absolute;
+    bottom: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    transition: bottom .5s ease;
+}
+
+.teacher-img-wrapper:hover .social-icons {
+    bottom: 10px; /* Соцсети поднимаются */
+}
+
+.social-icon {
+    background-color: white;
+    color: #333;
+    font-size: 25px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: transform .4s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+    color: var(--orange-color);
 }
 
 .teachers__b {
@@ -33,12 +73,14 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin-bottom: 3px;
     padding: 10px 0 0 5px;
+    text-align: center;
 }
 
 .teachers__p {
     font-size: 85%;
     color: #252525;
     padding: 0 0 10px 5px;
+    text-align: center;
 }
 
 @media (max-width: 846px) {
@@ -53,6 +95,10 @@
     .teachers__img {
         width: 170px;
         height: 250px;
+    }
+    .social-icon {
+        width: 40px;
+        height: 40px;
     }
 }
 

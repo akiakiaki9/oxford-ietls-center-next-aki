@@ -12,15 +12,15 @@ export default function TestimonialsCar() {
     const settings = {
         dots: true, // Включение точек навигации
         infinite: true, // Бесконечная прокрутка
-        speed: 500, // Скорость перехода между слайдами
+        speed: 700, // Скорость перехода между слайдами
         slidesToShow: 1, // Количество отображаемых слайдов
         slidesToScroll: 1, // Количество слайдов, которые прокручиваются за один раз
         autoplay: true, // Автоматическое воспроизведение слайдов
         autoplaySpeed: 2500, // Скорость автоматического воспроизведения (в миллисекундах)
         pauseOnHover: true, // Остановка воспроизведения при наведении мыши
+        fade: true, // Плавный переход слайдов
     };
 
-    // Отображение карусели с отзывами
     return (
         <div className='carousel'>
             <Slider {...settings}>
@@ -37,3 +37,4 @@ export default function TestimonialsCar() {
         </div>
     );
 }
+

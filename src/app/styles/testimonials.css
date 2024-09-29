@@ -1,35 +1,39 @@
-/* Стиль для общего контейнера отзывов */
-.testimonials {
-    padding: 10px 10px 50px 10px;
-    text-align: center;
-}
-
 /* Контейнер для карусели */
 .carousel {
     max-width: 700px;
     margin: 0 auto;
-    padding: 0 20px 20px 20px;
-    position: relative; /* Устанавливаем относительное позиционирование для управления внутренними элементами */
+    padding: 0 25px 20px 25px;
+    position: relative;
+    margin-bottom: 10px;
 }
 
 /* Стиль для отдельного отзыва */
 .testimonial {
     text-align: center;
-    padding: 20px;
+    padding: 0 6px 20px 6px;
     border-radius: 10px; 
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, opacity 0.5s ease; /* Добавляем плавное исчезновение */
     cursor: grab;
-    min-height: 320px;
+    opacity: 1; /* Начальная прозрачность */
 }
 
+.slick-active .testimonial {
+    opacity: 1; /* Активный слайд полностью виден */
+}
+
+.slick-slide {
+    opacity: 0;
+    transition: opacity 0.5s ease; /* Плавное исчезновение */
+}
+
+.slick-slide.slick-active {
+    opacity: 1; /* Видимый слайд */
+}
+
+/* Точки навигации */
 .slick-dots li button {
     color: var(--orange-color);
 }
-
-.slick-dots li button:before {
-    font-size: 12px; /* Размер точек */
-}
-
 
 .testimonial__img {
     width: 80px;
@@ -48,22 +52,14 @@
     color: #353535;
 }
 
+/* Медиа-запросы для адаптивности */
 @media (max-width: 557px) {
-    .testimonial {
-        min-height: 350px;
-    }
 
     .testimonial__name {
         font-size: 190%;
     }
 
     .testimonial__body {
-        font-size: 90%;
-    }
-}
-
-@media (max-width: 355px) {
-    .testimonial {
-        min-height: 370px;
+        font-size: 100%;
     }
 }
