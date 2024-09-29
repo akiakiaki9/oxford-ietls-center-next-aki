@@ -3,11 +3,11 @@
 import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaChevronLeft, FaChevronRight, FaDownload } from 'react-icons/fa';
 import 'swiper/swiper-bundle.css';
 import GALLERY from '../utils/gallery';
 import Image from 'next/image';
-import '../styles/gallery.css'
+import '../styles/gallery.css';
 
 export default function GalleryArt() {
     const [isOpen, setIsOpen] = useState(false);
@@ -20,6 +20,15 @@ export default function GalleryArt() {
 
     const closeCarousel = () => {
         setIsOpen(false);
+    };
+
+    const downloadImage = (url) => {
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `Image_${currentSlide + 1}.jpg`; // Задать имя скачиваемого файла
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     };
 
     return (
@@ -39,6 +48,11 @@ export default function GalleryArt() {
 
             {isOpen && (
                 <div className="carousel-overlay">
+                    {/* Кнопка для скачивания изображения */}
+                    <button className="download-button" onClick={() => downloadImage(GALLERY[currentSlide].photo)}>
+                        <FaDownload />
+                    </button>
+                    {/* Кнопка для закрытия карусели */}
                     <button className="close-button" onClick={closeCarousel}>×</button>
                     <Swiper
                         initialSlide={currentSlide}
@@ -52,7 +66,7 @@ export default function GalleryArt() {
                         modules={[Navigation]}
                     >
                         {GALLERY.map((item) => (
-                            <SwiperSlide key={item.id} className='ahah'>
+                            <SwiperSlide key={item.id}>
                                 <Image src={item.photo} alt={`Slide ${item.id}`} className="carousel-image" width={'500px'} height={'500px'} />
                             </SwiperSlide>
                         ))}
@@ -63,7 +77,6 @@ export default function GalleryArt() {
                     <div className="swiper-button-next">
                         <FaChevronRight />
                     </div>
-                    {/* Нумерация слайдов */}
                     <div className="slide-counter">
                         {currentSlide + 1} / {GALLERY.length}
                     </div>

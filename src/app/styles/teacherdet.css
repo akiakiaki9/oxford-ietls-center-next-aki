@@ -1,8 +1,5 @@
 .teacherdet {
     padding: 20px 10px;
-    background-image: url('../images/teacherdet.avif');
-    background-size: cover;
-    background-position: center;
 }
 
 .teacherdet-blok {
@@ -16,12 +13,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    gap: 30px;
 }
 
 .teacherdet-blok__container img {
-    width: 300px;
-    height: 300px;
+    width: 270px;
+    height: 270px;
     object-fit: cover;
     padding: 5px;
     border: 1px solid rgb(164, 164, 164);
@@ -44,6 +41,7 @@
 }
 
 .teacherdet__students {
+    width: 200px;
     font-size: 160%;
     font-family: sans-serif;
 }
@@ -54,15 +52,9 @@
     font-weight: bold;
 }
 
-
-
-.teacherdet-blok__container-links {
-    text-align: center;
-}
-
-.teacherdet-blok__container-links div {
+.teachersdet__biography-container {
     display: flex;
-    justify-content: center;
+    justify-content: end;
     gap: 10px;
 }
 
@@ -71,20 +63,25 @@
     height: 30px;
     cursor: pointer;
     transition: .3s;
-    color: var(--orange-color);
+    color: black;
 }
 
 .teacherdet__link:hover {
     opacity: .7;
+    color: var(--orange-color);
+    transform: scale(1.2);
 }
 
 .teachersdet__biography {
-    max-width: 900px;
+    width: 100%;
 }
 
 .teachersdet__biography p {
     font-size: 110%;
     letter-spacing: 0.1px;
+    background-color: #e8e8e8;
+    padding: 10px 20px;
+    border: 1px solid var(--orange-color);
 }
 
 .teachersdet__biography-h2 {
@@ -110,5 +107,12 @@
 
     .teacherdet__title {
         font-size: 210%;
+    }
+}
+
+@media (max-width: 437px) {
+    .teacherdet-blok__container img {
+        width: 150px;
+        height: 150px;
     }
 }

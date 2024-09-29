@@ -1,9 +1,9 @@
-import photo1 from '../images/gallery/gallery1.png'
-import photo2 from '../images/gallery/gallery2.jpg'
-import photo3 from '../images/gallery/gallery3.jpg'
-import photo4 from '../images/gallery/gallery4.jpg'
-import photo5 from '../images/gallery/gallery5.jpg'
-import photo6 from '../images/gallery/gallery6.png'
+import photo1 from '/public/images/gallery/gallery1.png'
+import photo2 from '/public/images/gallery/gallery2.jpg'
+import photo3 from '/public/images/gallery/gallery3.jpg'
+import photo4 from '/public/images/gallery/gallery4.jpg'
+import photo5 from '/public/images/gallery/gallery5.jpg'
+import photo6 from '/public/images/gallery/gallery6.png'
 
 const GALLERY = [
     {

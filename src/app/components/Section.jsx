@@ -1,8 +1,8 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import stats1 from '../images/stats1.svg'
-import stats2 from '../images/stats2.svg'
-import stats3 from '../images/stats3.svg'
+import stats1 from '/public/images/stats1.svg'
+import stats2 from '/public/images/stats2.svg'
+import stats3 from '/public/images/stats3.svg'
 import Image from 'next/image';
 
 export default function Section() {

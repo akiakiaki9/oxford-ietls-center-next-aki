@@ -1,7 +1,7 @@
-import photo1 from '../images/team1.jpg';
-import photo2 from '../images/team2.jpg';
-import photo3 from '../images/team3.jpg';
-import photo4 from '../images/team4.jpg';
+import photo1 from '/public/images/team1.jpg';
+import photo2 from '/public/images/team2.jpg';
+import photo3 from '/public/images/team3.jpg';
+import photo4 from '/public/images/team4.jpg';
 
 export const TEACHERS = [
     {

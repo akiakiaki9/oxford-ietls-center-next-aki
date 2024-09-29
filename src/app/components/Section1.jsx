@@ -1,6 +1,6 @@
 'use client';
 import React from 'react'
-import photo from '../images/section1.jpg'
+import photo from '/public/images/section1.jpg'
 import Image from 'next/image';
 
 export default function Section1() {

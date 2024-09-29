@@ -6,7 +6,7 @@ import Navbar2 from '../../components/Navbar2';
 import Footer1 from '../../components/Footer1';
 import Footer2 from '../../components/Footer2';
 import { TEACHERS } from '../../utils/teachers';
-import { FaTelegramPlane, FaInstagram } from "react-icons/fa";
+import { FaTelegramPlane, FaInstagram, FaFacebook } from "react-icons/fa";
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -27,8 +27,8 @@ export default function TeachersDetail() {
             const end = teacher.students;
             if (start === end) return;
 
-            const duration = 3000; 
-            const stepTime = 10; 
+            const duration = 3000;
+            const stepTime = 10;
             const totalSteps = duration / stepTime;
 
             let step = 0;
@@ -61,27 +61,30 @@ export default function TeachersDetail() {
                     <div className="teacherdet-blok">
                         <div className='teacherdet-blok__container'>
                             <div className="teacherdet-blok__container-1">
-                                <Image src={teacher.image} alt={`Photo of ${teacher.title}`} width={500} height={500} />
+                                <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOfa59QTyD2tEAuD00P1_D8aR6VbwIHy3EYg&s' />
+                                <Image src={teacher.image} alt={`Photo of ${teacher.title}`} width={400} height={400} />
                             </div>
                             <div className='teacherdet-blok__container-2'>
                                 <h1 className='teacherdet__title'>{teacher.title}</h1>
-                                <br />
                                 <b className='teacherdet__age'>{teacher.age} y.o, {teacher.category}</b>
+                                <br />
+                                <br />
                                 <br />
                                 <p className='teacherdet__students'>Up to <span>{studentsCount}</span> students trained</p>
                             </div>
                         </div>
                         <div className="teachersdet-blok__container teachersdet__biography">
                             <h2 className='teachersdet__biography-h2'>Biography</h2>
-                            <p>{teacher.body} {teacher.body} {teacher.body} {teacher.body} {teacher.body}</p>
-                            <br />
-                            <div className="teacherdet-blok__container-links">
-                                <h2>Social networks:</h2>
-                                <div>
+                            <p>
+                                {teacher.body} {teacher.body} {teacher.body} {teacher.body} {teacher.body}
+                                <br />
+                                <span className='teachersdet__biography-container'>
+                                    <a href={teacher.facebookLink}><FaFacebook className='teacherdet__link' /></a>
                                     <a href={teacher.telegramLink}><FaTelegramPlane className='teacherdet__link' /></a>
                                     <a href={teacher.instagramLink}><FaInstagram className='teacherdet__link' /></a>
-                                </div>
-                            </div>
+                                </span>
+                            </p>
+                            <br />
                         </div>
                     </div>
                 </div>
