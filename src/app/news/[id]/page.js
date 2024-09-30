@@ -2,11 +2,12 @@
 import React, { useEffect, useState } from 'react';
 import Navbar2 from '../../components/Navbar2';
 import Navbar1 from '../../components/Navbar1';
-import Title from '../../components/Title';
 import Footer1 from '../../components/Footer1';
 import Footer2 from '../../components/Footer2';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { NEWS } from '../../utils/news';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function NewsDetail() {
     const pathname = usePathname(); // Получаем текущий путь
@@ -35,11 +36,31 @@ export default function NewsDetail() {
         <div>
             <Navbar2 />
             <Navbar1 />
-            <Title />
+            <div className='pagename'>
+                <div className="pagename-blok">
+                    <h1>{newsItem.pagename}</h1>
+                    <p>
+                        <Link href="/" className='pagename-parent'>Home</Link>
+                    </p>
+                </div>
+            </div>
             <div className='newsdet'>
                 <div className="newsdet-blok">
-                    <h1>{newsItem.title}</h1>
-                    <p>{newsItem.content}</p>
+                    <div className='newsdet-blok__section'>
+                        <Image className='newsdet__img' src={newsItem.photo} alt='' width={500} height={500} />
+                    </div>
+                    <div className='newsdet-blok__section newsdet-blok__section-2'>
+                        <h1 className='newsdet__title'>{newsItem.title}</h1>
+                        <p className='newsdet__subtitle'>{newsItem.subtitle}</p>
+                        <b className='newsdet__body'>{newsItem.body}</b>
+                        <div className='newsdet__date'>
+                            <p className='newsdet__date-p1'>Oxford IELTS</p>
+                            <p className='newsdet__date-p2'>{newsItem.date}</p>
+                        </div>
+                        <div className='newsdet__register'>
+                            <Link href='/contacts'><button>Register</button></Link>
+                        </div>
+                    </div>
                 </div>
             </div>
             <Footer1 />

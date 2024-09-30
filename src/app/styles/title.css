@@ -58,6 +58,12 @@
     }
 }
 
+@media (max-width: 435px) {
+    .pagename-blok h1 {
+        font-size: 170%;
+    }
+}
+
 @media (max-width: 350px) {
     .pagename-parent {
         font-size: 90%;
